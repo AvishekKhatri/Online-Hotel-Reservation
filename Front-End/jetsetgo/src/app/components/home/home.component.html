@@ -1,0 +1,109 @@
+<nav class="navbar">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <div class="logo">JetSetGo</div>
+    <div class="nav-links">
+      <a (click)="navigateToHotels()">Hotels</a>
+      <a (click)="navigateToHotels()">Home</a>
+      <a (click)="navigateToHotels()">Deals</a>
+    </div>
+    <div class="nav-search">
+      <input type="text" placeholder="Search for destinations..." />
+      <button class="btn-nav-search" (click)="navigateToHotels()">Search</button>
+    </div>
+  </nav>
+  
+  <header class="header">
+    <div class="hero-content">
+      <h1 class="title"><b>JetSetGo</b></h1>
+      <p class="subtitle">
+        Turn nights into memories.<br />
+        Luxury stays across 800+ cities, 24+ countries
+      </p>
+  
+      <div class="search-section">
+        <div class="search-bar">
+          <input type="text" placeholder="Where would you like to stay?" />
+          <button class="btn btn-success" (click)="navigateToHotels()">Search</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="offers-banner">
+    <div class="marquee">
+      🌟 Special Offers: Save up to 50% on selective hotels! | 🍳 Free breakfast with select
+      bookings! | 🎁 Exclusive member discounts | 24/7 customer support
+    </div>
+  </div>
+  
+  <section class="featured-section">
+    <h2 class="section-title">Featured Destinations</h2>
+    <div class="cards-container">
+      <div class="card" (click)="navigateToHotels()">
+        <img src="assets/hotel1.jpg" alt="Luxury Hotel 1" class="card-img" />
+        <div class="card-content">
+          <h3 class="card-title">Luxury Resort Maldives</h3>
+          <p>Experience paradise on Earth</p>
+          <p class="card-price">From ₹2999/night</p>
+        </div>
+      </div>
+      <div class="card" (click)="navigateToHotels()">
+        <img src="assets/hotel2.jpg" alt="Luxury Hotel 2" class="card-img" />
+        <div class="card-content">
+          <h3 class="card-title">Dubai Sky Palace</h3>
+          <p>Touch the clouds in style</p>
+          <p class="card-price">From ₹1999/night</p>
+        </div>
+      </div>
+      <div class="card" (click)="navigateToHotels()">
+        <img src="assets/hotel3.jpg" alt="Luxury Hotel 3" class="card-img" />
+        <div class="card-content">
+          <h3 class="card-title">Santorini Villa</h3>
+          <p>Mediterranean luxury redefined</p>
+          <p class="card-price">From ₹1249/night</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <div class="scrolling-marquee">
+    <span>
+      🌟 Limited Time Offer: Get 20% off on your first booking! | 🍳 Enjoy free breakfast at selective hotels! | 🎁 Exclusive member discounts available now!
+    </span>
+  </div>
+  
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>About JetSetGo</h3>
+        <p>
+          JetSetGo is your trusted partner for luxurious and affordable stays around the globe. We connect travelers with premium hotels, resorts, and homes across 800+ cities in 24+ countries. Experience seamless booking, world-class service, and exclusive offers with JetSetGo.
+        </p>
+      </div>
+      <div class="footer-column">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#">Popular Destinations</a></li>
+          <li><a href="#">Travel Guides</a></li>
+          <li><a href="#">Member Benefits</a></li>
+          <li><a href="#">Customer Stories</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Us</h3>
+        <p>For support or inquiries:</p>
+        <p>Email: <a href="mailto:rohithkantipudi&#64;gmail.com">rohithkantipudi&#64;gmail.com</a></p>
+        <p>Phone: +919346589820</p>
+        <p>Follow us on:</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 JetSetGo. All rights reserved.</p>
+    </div>
+  </footer>

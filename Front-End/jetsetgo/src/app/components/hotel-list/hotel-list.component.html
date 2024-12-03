@@ -1,0 +1,84 @@
+<div class="page-container">
+  <!-- Sticky Top Bar -->
+  <div class="top-bar">
+    <div class="logo"><h2>JetSetGo</h2></div>
+    <div class="search-bar">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        placeholder="Search by name or location..."
+      />
+    </div>
+  </div>
+
+  <div class="content-container">
+    <!-- Sticky Left Sidebar -->
+    <div class="sidebar">
+      <h3>Filters</h3>
+
+      <!-- Max Price Filter -->
+      <div class="filter-group">
+        <label for="priceRange"><strong>Max Price:</strong> ₹{{ maxPrice }}</label>
+        <input
+          id="priceRange"
+          type="range"
+          [(ngModel)]="maxPrice"
+          [min]="minPriceLimit"
+          [max]="maxPriceLimit"
+        />
+      </div>
+
+      <!-- Date Filter -->
+      <!-- Date Filter -->
+<div class="filter-group">
+  <label for="checkInDate"><strong>Check-in Date:</strong></label>
+  <input type="date" id="checkInDate" [(ngModel)]="checkInDate" />
+
+  <label for="checkOutDate"><strong>Check-out Date:</strong></label>
+  <input type="date" id="checkOutDate" [(ngModel)]="checkOutDate" />
+</div>
+
+
+      <!-- Amenities Filter -->
+      <div class="filter-group">
+        <label><strong>Amenities:</strong></label>
+        <div class="amenities-capsules">
+          <div
+            class="amenity-capsule"
+            *ngFor="let amenity of getAmenityKeys()"
+            [class.active]="filters.amenities[amenity]"
+            (click)="toggleAmenity(amenity)"
+          >
+            {{ amenity }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrollable Hotel Listings -->
+    <div class="hotel-list">
+      <div class="list-header">
+        <h2>Available Hotels</h2>
+        <div class="sort-dropdown">
+          <select id="sortBy" [(ngModel)]="sortCriteria">
+            <option value="priceLowToHigh">Price: Low to High</option>
+            <option value="priceHighToLow">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <div
+        class="hotel"
+        *ngFor="let hotel of filteredHotels()"
+      >
+        <img [src]="hotel.image" alt="{{ hotel.name }}" />
+        <div class="hotel-details">
+          <h3>{{ hotel.name }}</h3>
+          <p>{{ hotel.location }}</p>
+          <p>₹{{ hotel.price }} / night</p>
+          <button [routerLink]="['/hotels', hotel.id]">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

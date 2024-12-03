@@ -1,0 +1,407 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.hotel-details-page {
+  background-color: var(--background-light);
+  min-height: 100vh;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  letter-spacing: -1px;
+}
+
+.search-bar input {
+  width: 500px;
+  padding: 12px 20px;
+  border: 2px solid black;
+  border-radius: 30px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #8B4513;
+  box-shadow: 0 4px 6px rgba(52, 152, 219, 0.1);
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.carousel {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.carousel button:first-of-type {
+  left: 20px;
+}
+
+.carousel button:last-of-type {
+  right: 20px;
+}
+:root {
+  /* Warm Color Palette */
+  --primary-color: #8B4513; /* Saddle Brown */
+  --secondary-color: #D2691E; /* Chocolate */
+  --accent-color: #CD853F; /* Peru - for highlights */
+  --background-dark: #36454F; /* Charcoal */
+  --background-light: #F4E1D2; /* Soft Warm Beige */
+  --text-dark: #2F4F4F; /* Dark Slate Gray */
+  --text-light: #6B4423; /* Dark Brown */
+  --border-color: #A0522D; /* Sienna */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F4E1D2;
+  color: #2F4F4F;
+  line-height: 1.6;
+}
+
+.content-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 2rem auto;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 15px 30px rgba(139, 69, 19, 0.2);
+  overflow: hidden;
+  border: 2px solid #A0522D;
+}
+
+.hotel-info {
+  flex: 2;
+  padding: 2.5rem;
+  background-color: white;
+}
+
+.booking-sidebar {
+  flex: 1;
+  background-color: #F4E1D2;
+  padding: 2.5rem;
+  border-left: 2px solid #A0522D;
+}
+
+/* Hotel Info Styles */
+.hotel-info h1 {
+  color: #000000;
+  font-size: 2.7rem;
+  margin-bottom: 0.7rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.address {
+  color: var(--text-light);
+  margin-bottom: 1.2rem;
+  font-style: italic;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.rating-value {
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-right: 0.7rem;
+  font-size: 1.5rem;
+  background-color: rgba(210, 105, 30, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+
+.rating-count {
+  color: var(--text-light);
+}
+
+.company-serviced {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.company-serviced span {
+  background-color: #f5b78b;
+  color: rgb(0, 0, 0);
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 5px rgba(139, 69, 19, 0.3);
+}
+
+.section-title {
+  color:#8B4513;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.amenities {
+  display: flex;
+  gap: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.amenity {
+  background-color: rgba(139, 69, 19, 0.1);
+  color: var(--text-light);
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: 1px solid #A0522D;
+}
+
+.description {
+  margin-bottom: 1.5rem;
+  color: #2F4F4F;
+  line-height: 1.7;
+}
+
+.room-details {
+  background-color: rgba(210, 105, 30, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #A0522D;
+}
+
+.room-details h4 {
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.room-details-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.room-info {
+  flex: 1;
+}
+
+.room-amenities {
+  display: flex;
+  gap: 0.6rem;
+  margin: 0.7rem 0;
+}
+
+.room-price {
+  font-weight: 700;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+
+.room-image img {
+  max-width: 150px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Booking Sidebar Styles */
+.booking-sidebar h2 {
+  color: #000000;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.taxes {
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+  
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: black;
+  font-weight: 700;
+}
+
+.form-group input, 
+.counter {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1px solid #f2ae8e;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color:  #f1a36b;
+}
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(252, 216, 106, 0);
+}
+
+.counter button {
+  background-color: #f1a36b;
+  color: rgb(0, 0, 0);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.counter button:hover {
+  background-color:  #52290c;
+  transform: scale(1.1);
+}
+
+.price-summary {
+  background-color: #f7a163;
+  color: rgb(0, 0, 0);
+  padding: 1.2rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.cancellation-policy {
+  background-color: rgba(139, 69, 19, 0.1);
+  padding: 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  border: 1px solid #A0522D;
+}
+
+.continue-btn {
+  width: 100%;
+  padding: 1.2rem;
+  background-color: #D2691E;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.continue-btn:hover {
+  background-color: #D2691E;
+  transform: translateY(-3px);
+}
+
+.continue-btn:disabled {
+  background-color: #D2691E;
+  cursor: not-allowed;
+  transform: none;
+}
+/* ... (existing styles) ... */
+
+.room-guests-container {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.room-guests-container .form-group {
+  flex: 1;
+}
+
+.room-guests-container .counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#D2691E;
+  padding: 0.9rem;
+  border: 1px solid #A0522D;
+  border-radius: 8px;
+}
+
+.room-guests-container .counter button {
+  background-color: #c5afa5 ;
+  color:  rgb(0, 0, 0);
+  border: black;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.room-guests-container .counter button:hover {
+  background-color: #f58636;
+  transform: scale(1.1);
+}
+
+/* ... (existing styles) ... */

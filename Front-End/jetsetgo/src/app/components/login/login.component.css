@@ -1,0 +1,119 @@
+/* Full Page Styling */
+.login-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: url('/assets/login-bg.jpg') no-repeat center center / cover;
+    padding: 20px;
+    color: black;
+  }
+  
+  /* Navigation Bar */
+  .nav-bar {
+    position: absolute;
+    top: 0px;
+    left: 60px;
+  }
+  
+  .logo {
+    font-size: 36px;
+    font-family: 'Lucida Handwriting',cursive;
+    font-weight: bold;
+    color: rgb(43, 36, 36);
+  }
+  
+  /* Main Content Styling */
+  .main-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 50px;
+  }
+  
+  /* Tagline Section */
+  .header {
+    flex: 1;
+    max-width: 500px;
+    margin-right: 20px;
+  }
+  
+  .tagline {
+    font-size: 36px;
+    font-weight: bold;
+    color: #302424;
+    margin: 0;
+  }
+  
+  .sub-tagline {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  /* Login/Signup Card Styling */
+  .login-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 350px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .tab-button {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .tab-button.active {
+    border-bottom: 2px solid black;
+    color: black;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: calc(100% - 10px);
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .action-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .action-button:hover {
+    background-color: #333;
+  }
+  

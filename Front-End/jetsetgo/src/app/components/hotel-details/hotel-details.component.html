@@ -1,0 +1,134 @@
+<div *ngIf="hotel" class="hotel-details-page">
+  <!-- Sticky Header -->
+  <div class="top-bar">
+    <div class="logo">JetSetGo</div>
+    <div class="search-bar">
+      <input type="text" placeholder="Search by city, hotel, or neighborhood..." />
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="carousel">
+      <button (click)="prevImage()">&#8249;</button>
+      <img [src]="carouselImages[currentImageIndex]" alt="Hotel Image" />
+      <button (click)="nextImage()">&#8250;</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content-container">
+    <!-- Left Content -->
+    <div class="hotel-info">
+      <h1>{{ hotel.name }}</h1>
+      <p class="address">{{ hotel.location }}</p>
+      
+      <div class="rating">
+        <span class="rating-value">{{ hotel.rating || 4.8 }}</span>
+        <span class="rating-count">({{ hotel.reviewCount || 327 }} Ratings)</span>
+      </div>
+      
+      <div class="company-serviced">
+        <span>Company-Serviced</span>
+        <span>Delightful Experience</span>
+      </div>
+      
+      <h3 class="section-title">Amenities</h3>
+      <div class="amenities">
+        <span *ngFor="let amenity of hotel.amenities || ['Parking', 'Wi-Fi', 'TV']" class="amenity">
+          {{ amenity }}
+        </span>
+      </div>
+      
+      <h3 class="section-title">About this Hotel</h3>
+      <p class="description">
+        {{ hotel.description || 'Affordable hotels at prime locations.' }}
+      </p>
+      
+      <div class="room-details">
+        <h4>Classic Room</h4>
+        <div class="room-details-content">
+          <div class="room-info">
+            <p>Room size: 9 sqm</p>
+            <div class="room-amenities">
+              <span *ngFor="let amenity of hotel.amenities || ['AC', 'TV', 'DTH']" class="amenity">
+                {{ amenity }}
+              </span>
+            </div>
+            <p class="room-price">₹{{ hotel.price || 1500 }} + taxes & fees</p>
+          </div>
+          <div class="room-image">
+            <img [src]="hotel.image || 'https://via.placeholder.com/150'" alt="Room Image" />
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Right Sidebar -->
+    <div class="booking-sidebar">
+      <h2>₹{{ hotel.price || 1500 }} / night</h2>
+      <p class="taxes">+ taxes & fees</p>
+      
+      <div class="form-group">
+        <label>Check-In Date</label>
+        <input type="date" [(ngModel)]="checkInDate" (change)="updateBookingSummary()" />
+      </div>
+      
+      <div class="form-group">
+        <label>Check-Out Date</label>
+        <input type="date" [(ngModel)]="checkOutDate" (change)="updateBookingSummary()" />
+      </div>
+      
+      <div class="room-guests-container">
+        <div class="form-group">
+          <label>Rooms</label>
+          <div class="counter">
+            <button (click)="decreaseRooms()">-</button>
+            <span>{{ selectedRooms }}</span>
+            <button (click)="increaseRooms()">+</button>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label>Guests</label>
+          <div class="counter">
+            <button (click)="decreasePersons()">-</button>
+            <span>{{ selectedPersons }}</span>
+            <button (click)="increasePersons()">+</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="price-summary">
+        <h3>Total Price: ₹{{ totalPrice }}</h3>
+      </div>
+      
+      <div class="cancellation-policy">
+        <p>Cancellation Policy</p>
+        <p>Follow safety measures advised at the hotel</p>
+        <p>By proceeding, you agree to our Guest Policies.</p>
+      </div>
+      
+      <button 
+        class="continue-btn"
+        [routerLink]="['/booking', hotel.id]"
+        [queryParams]="{
+          checkInDate: checkInDate,
+          checkOutDate: checkOutDate,
+          selectedRooms: selectedRooms,
+          selectedPersons: selectedPersons
+        }"
+        [disabled]="!canBook()"
+      >
+        Continue to Book
+      </button>
+    </div>
+  </div>
+
+  
+  
+</div>
+
+<div *ngIf="!hotel" class="loading">
+  <p>Loading hotel details...</p>
+</div>

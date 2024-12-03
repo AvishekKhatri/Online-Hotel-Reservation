@@ -1,0 +1,172 @@
+<div class="booking-page">
+  <!-- Navbar -->
+  <header class="header">
+    <nav class="navbar">
+      <a class="logo" routerLink="/home">JetSetGo</a>
+      <div class="nav-menu">
+        <button class="nav-link" (click)="navigateTo('home')">Home</button>
+    <button class="nav-link" (click)="navigateTo('hotels')">Hotels</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Booking Container -->
+  <div class="booking-container">
+    <!-- Booking Summary -->
+    <div class="booking-summary">
+      <h2 class="section-title">Booking Details</h2>
+      <div class="summary-grid">
+        <div class="summary-item">
+          <span class="label">Hotel</span>
+          <span class="value">{{ hotel?.name }}</span>
+        </div>
+        <div class="summary-item">
+          <span class="label">Location</span>
+          <span class="value">{{ hotel?.location }}</span>
+        </div>
+        <div class="summary-item">
+          <span class="label">Check-in</span>
+          <span class="value">{{ checkInDate | date: 'mediumDate' }}</span>
+        </div>
+        <div class="summary-item">
+          <span class="label">Check-out</span>
+          <span class="value">{{ checkOutDate | date: 'mediumDate' }}</span>
+        </div>
+      </div>
+
+      <div class="pricing-breakdown">
+        <h3>Pricing Breakdown</h3>
+        <div class="price-row">
+          <span>Room Rate</span>
+          <span>₹{{ hotel?.price | number: '1.0-0' }} / night</span>
+        </div>
+        <div class="price-row">
+          <span>Total Nights</span>
+          <span>{{ calculateNights() }}</span>
+        </div>
+        <div class="price-row">
+          <span>Subtotal</span>
+          <span>₹{{ (hotel?.price * calculateNights()) | number: '1.0-0' }}</span>
+        </div>
+        <div class="price-row">
+          <span>Instant Discount</span>
+          <span>-₹{{ instantDiscount | number: '1.0-0' }}</span>
+        </div>
+        <div class="price-row">
+          <span>Coupon Discount</span>
+          <span>-₹{{ couponDiscount | number: '1.0-0' }}</span>
+        </div>
+        <div class="price-row">
+          <span>Taxes & Fees</span>
+          <span>₹{{ calculateTaxes() | number: '1.0-0' }}</span>
+        </div>
+        <div class="price-row total">
+          <span>Total Amount</span>
+          <span>₹{{ totalPayable | number: '1.0-0' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Form -->
+    <div class="booking-form">
+      <h2 class="section-title">Complete Your Booking</h2>
+      <form [formGroup]="bookingForm" (ngSubmit)="submitBooking()">
+        <div class="form-group">
+          <label for="full-name">Full Name</label>
+          <input 
+            type="text" 
+            id="full-name" 
+            formControlName="fullName" 
+            placeholder="Enter your full name"
+          />
+          <small 
+            class="error-message" 
+            *ngIf="bookingForm.get('fullName')?.invalid && bookingForm.get('fullName')?.touched"
+          >
+            Full Name is required (minimum 3 characters).
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input 
+            type="email" 
+            id="email" 
+            formControlName="email" 
+            placeholder="Enter your email"
+          />
+          <small 
+            class="error-message" 
+            *ngIf="bookingForm.get('email')?.invalid && bookingForm.get('email')?.touched"
+          >
+            A valid email is required.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input 
+            type="tel" 
+            id="phone" 
+            formControlName="phone" 
+            placeholder="Enter your phone number"
+          />
+          <small 
+            class="error-message" 
+            *ngIf="bookingForm.get('phone')?.invalid && bookingForm.get('phone')?.touched"
+          >
+            A valid phone number is required.
+          </small>
+        </div>
+
+        <div class="payment-section">
+          <h3>Payment Method</h3>
+          <div class="payment-options">
+            <label class="payment-option">
+              <input 
+                type="radio" 
+                formControlName="paymentMethod" 
+                value="credit-card"
+              />
+              <span>Credit Card</span>
+            </label>
+            <label class="payment-option">
+              <input 
+                type="radio" 
+                formControlName="paymentMethod" 
+                value="paypal"
+              />
+              <span>PayPal</span>
+            </label>
+            <label class="payment-option">
+              <input 
+                type="radio" 
+                formControlName="paymentMethod" 
+                value="bank-transfer"
+              />
+              <span>Bank Transfer</span>
+            </label>
+          </div>
+        </div>
+
+        <button 
+          type="submit" 
+          class="submit-booking" 
+          [disabled]="!bookingForm.valid || isProcessing"
+        >
+          {{ isProcessing ? 'Processing...' : 'Confirm Booking' }}
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Booking Confirmation Modal -->
+  <div class="booking-confirmation" *ngIf="bookingConfirmed">
+    <div class="confirmation-content">
+      <h2>Booking Confirmed!</h2>
+      <p>Thank you for booking <strong>{{ hotel?.name }}</strong>.</p>
+      <p>A confirmation email has been sent to <strong>{{ bookingForm.get('email')?.value }}</strong>.</p>
+      <button class="nav-link" (click)="navigateTo('home')">Home</button>
+    </div>
+  </div>
+</div>

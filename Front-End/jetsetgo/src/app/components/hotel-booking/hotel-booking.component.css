@@ -1,0 +1,232 @@
+:root {
+  --dark-bg: #121212;
+  --dark-card: #1E1E1E;
+  --primary-red: #8B0000;
+  --accent-gold: #DAA520;
+  --text-primary: #E0E0E0;
+  --text-secondary: #A0A0A0;
+  --error-red: #FF4136;
+}
+
+.booking-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  background-color: #1E1E1E;
+  padding: 1rem 2rem;
+  border-bottom: 2px solid  #8B0000;
+  margin-bottom: 2rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #DAA520;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #A0A0A0;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color:  #DAA520;
+}
+
+.booking-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.booking-summary, 
+.booking-form {
+  background-color: #1E1E1E;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  flex: 1;
+}
+
+.section-title {
+  color:  #DAA520;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #8B0000;
+  padding-bottom: 0.5rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary-item .label {
+  color: #A0A0A0;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.summary-item .value {
+  color:  #E0E0E0;
+  font-weight: 600;
+}
+
+.pricing-breakdown {
+  background-color: rgba(249, 244, 244, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.price-row:last-child {
+  border-bottom: none;
+}
+
+.price-row.total {
+  font-weight: bold;
+  color: #DAA520;
+}
+
+.booking-form .form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.booking-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #A0A0A0;
+}
+
+.booking-form input {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color:  #E0E0E0;
+}
+
+.error-message {
+  color: #FF4136;
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: -1.2rem;
+  left: 0;
+}
+
+.payment-section {
+  margin-bottom: 1.5rem;
+}
+
+.payment-section h3 {
+  color: #A0A0A0;
+  margin-bottom: 1rem;
+}
+
+.payment-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.submit-booking {
+  width: 100%;
+  padding: 1rem;
+  background-color: #8B0000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-booking:disabled {
+  background-color: #A0A0A0;
+  cursor: not-allowed;
+}
+
+.submit-booking:hover:not(:disabled) {
+  background-color:  #DAA520;
+  color: #121212;
+}
+
+.booking-confirmation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirmation-content {
+  background-color: #1E1E1E;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+}
+
+.confirmation-content h2 {
+  color:  #DAA520;
+  margin-bottom: 1rem;
+}
+
+.back-home-btn {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #8B0000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-home-btn:hover {
+  background-color:  #DAA520;
+  color: #121212;
+}
